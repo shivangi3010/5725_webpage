@@ -1,0 +1,870 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Virtual Telepresence Robot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+				    <p></br>
+					<h1> <a href="#">Virtual Presence Robot</a></h1>
+					<p>REALITY REIMAGINED</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="#one" class="active">Objective</a></li>
+						<li><a href="#two">Introduction</a></li>
+						<li><a href="#three">Design and Testing</a></li>
+						<li><a href="#four">Results</a></li>
+						<li><a href="#five">Conclusions</a></li>
+						<li><a href="#six">Future Work</a></li>
+						<li><a href="#seven">Budget</a></li>
+						<li><a href="#eight">References</a></li>
+						<li><a href="#nine">Code Appendix</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://github.com/shivangi3010/project_5725.git" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="image main" data-position="center">
+									<img src="images/banner.jpg" alt="" />
+								</div>
+								<div class="container">
+									<header class="major">
+										<h2>Virtual Telepresence Robot</h2>
+										<p>A real time experience providing you a virtual presence or "telepresence"<p>
+									</header>
+									<p>We aim to make a prototype of a virtual telepresence robot. This robot which is placed in a remote location is capable to capture the environment in virtual form using Raspberry Pi. The captured visuals are displayed on a webpage and virtual reality headset. The robot present in the remote location can be maneuvered by the user using their smartphone. </p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two">
+								<div class="container">
+									<h3>Introduction</h3>
+									<p> Don't want to miss your kids birthday but can't cancel that important investors meeting? There's nothing to worry because
+									 we have the perfect solution for you! 
+									 A Telepresence Robot is a videoconferencing bot that revolutionizes the way you feel. It enables people to be at 
+									 more than one place at a single time. It helps one feel more connected  by giving a physical presence where one can't be in person. 
+									 Driving your own virtual presence robot means you are free to roam around the office, attend meetings, visit work sites, attend class a
+									 and do much more from anywhere at anytime</br>
+									 We have implementing the following features in our virtual presence robot: </br> 
+									<ul class="feature-icons">
+										<li class="icon solid fa-camera">Live screening from a remote location </li>
+										<li class="icon solid fa-robot">Control the robot using smartphone </li>
+										<li class="icon solid fa-bolt">Real time response to users head movement</li>
+										<li class="icon solid fa-video">Video output on virtual headset and webpage</li>
+									</ul>
+								</div>
+							</section>
+
+						<!-- Three -->
+							<section id="three">
+								<div class="container">
+									<h3>Design and Testing</h3>
+									<p>The project was divided into various phases. We followed an incremental approach towards designing our 
+									telepresence robot. In this section, we'll be describing the design and testing approach we followed:</p>
+									<div class="features">
+									    <style>
+      									.img-container {
+											text-align: center;
+													}
+								        </style>
+									<p>We started off by building a block diagram for the top level picture of our virtual presence robot.</p>
+										<body>																						
+												<h4>Initial Thought</h4>
+												<p> At the nascent stages of the project, we had a fair picture of how our system should look like 
+												which was further improvised as we gained more undertsanding and got in depth with the project.
+												The virtual presence robot which is present in the remote location should be able to move around the remote location 
+												controlled by commands sent on the smartphone communicating via Bluetooth. Parallely,it should record the video using 
+												the camera module which will be sent to the smartphone using WiFi. An additional feature is that the camera should move 
+												left and right based on the head movement of the user which is based on signals from the smartphone with 
+												magnetometer,accelerometer and gyroscope to the servo motors for controlling the camera. 
+												</p>
+												<img src="images/pic02.jpg" alt="" width="80%" height="80%"/></br>
+										</body>
+										
+										<body>																			
+												<h4>Final Block Diagram </h4>
+												<p>As we moved ahead with finalizing our top level picture, we improvised on certain aspects and our final top level 
+												picture/block diagram looked like in the image below. Instead of using a Bluetooth Module, we control everything wirlessly
+												using Wi-Fi. We combine the camera and servo motors to be replaced by a camera gimbal which is essentially the same 
+												thing built in a more sophisticated way. We decided to move ahead controlling the robot with servo motors and not DC motors
+												to suit our application. To add to that, Servo motors are programmable and easy to work with.
+												</p>
+												<img src="images/pic01.jpg" alt="" width="80%" height="80%"/></br>											
+										</body>
+										</br>
+										<body>																			
+												<h4>Methodology </h4>
+												<p> We followed a modular approach to design our virtual presence robot taking one part and developing the hardware 
+												and software for it and then testing it.In the end , we combined all the modules together and tied them at the top level.
+												</p>
+												
+									<ul class="feature-icons">									
+										<li class="icon solid fa fa-car"><b>ROBOT FRAMEWORK</b></li>
+									</ul>
+											<h5>DESIGN</h5>							
+									<p>
+												The first step towards implementing the telepresence robot was to assemble a robot frame and to
+												include Raspberry Pi and servo motors to make a mobile system. The mobile robot has three frames or levels to accommodate a camera 
+												mounted on a gimbal,Raspberry pi with connections to drive the gimbal and wheels of the robot and a battery source to
+												supply power to Raspberry Pi.
+									</p>
+												<center>
+												<img src="images/pic03.jpg" alt="" width="60%" height="60%"/></br>
+												</center>
+												
+											<h5>TESTING</h5>							
+									<p>
+									Next python script was written to control the movement of the servo meters by changing the duty
+									cycle of the PWM signal. 
+									The left and right servos were controlled individually by passing the following signals:</br>
+									Forward  ---->  Left Servo: Anticlockwise Direction , Right Servo: Clockwise Direction</br>
+									Backward ---->  Left Servo: Clockwise Direction     , Right Servo: Anticlockwise Direction</br>
+									Left     ---->  Left Servo: Stop                    , Right Servo: Anticlockwise Direction</br>
+									Right    ---->  Left Servo: Clockwise Direction     , Right Servo: Stop </br>
+									The Duty Cycle is passed to an in-built function to change the direction of the motor. Duty cycle of 7.9 and 5.9 is given for anticlockwise
+									and clockwise rotation respectively.</br> 
+									We then tested the Robot using WiFi Command Center App by RootSaid.</br>
+									This app provides an interface to connect to a given port on a server and alsoprovides interface to send commands to the robot. The 
+									following is a glimpse of the application:
+									<center>
+												<img src="images/robot_control.jpg" alt="" width="60%" height="60%"/></br>
+									</center>
+									For the app to send commands, a listener must be set up for the telepresence robot system. This was done by importing the socket library to set up a 
+									communication channel based on the UDP protocol.The output of this program can be seen below:</br>
+									<center>
+												<img src="images/test_udp.jpg" alt="" width="90%" height="90%"/></br>
+									</center>
+									Lastly, this is combined with the script to control the servos of the system. 
+									The robot moves inthe direction chosen from the Wifi Command Center app. The output of this program can be seen on the terminal:</br>
+									<center>
+												<img src="images/test_rc.jpg" alt="" width="90%" height="90%"/></br>
+									</center>									
+
+									</p>
+									
+									<ul class="feature-icons">									
+										<li class="icon solid fa-camera"><b>LIVE SCREENING USING CAMERA</b></li>
+									</ul>
+											
+										     	<font size="5">Pi Camera</font></br></br>	
+												
+									<p>
+												<b>DESIGN</b></br>
+
+												The first step towards this goal was to setup a PiCam and ensure that it captures images and
+												videos. The setup of the PiCam included:
+												<ul style="list-style-type:square;">
+													<li>Setting up the Hardware by plugging in the camera module to the RPi Camera Port</li>
+													<li>Adjusting the settings in Raspberry Configuration Tool by enabling the Camera Interface</li>
+													<li>Reboot Raspberry Pi for the camera settings to work</li>
+												</ul>
+									</p>
+
+									<p>
+												<b>TESTING</b></br>
+
+												Next, we gave a test run of the Pi Camera from the terminal by running commands like <i>raspistill</i> or <i>raspivid</i>.
+												Using these commands, we made sure that the Pi Camera is working properly and images and videos are accurately captured 
+												as it forms a major part of our system. 
+												
+									</p>
+									
+									<font size="5">Configuring RPi as server</font></br></br>
+
+									<p>
+												<b>DESIGN</b></br>
+
+												We decided to output the live screening from the camera onto a webpage. We followed the following procedure :
+												<ul style="list-style-type:square;">
+													<li><b>Installing apache on Raspberry Pi</b></li>
+													<p> Apache is used to configure Raspberry Pi as server. It is readily available on the RPi to allow it to serve 
+													web pages. Apache can serve HTML pages over Hyper Text Transfer Protocol (HTTP). 
+													The following command is used to install apache:</br>
+													<i> sudo apt install apache2 -y </i>												
+													</p>
+													
+													<li><b>Installing php5 on Raspberry Pi</b></li>
+													<p>For our application, we need a webpage that is constantly changing that is everytime 
+													it is viewd. For that purpose, we need to find a way to serve dynamic web pages. 
+													With an additional PHP module, the RPi can also serve dynamic web pages.</br>
+													<i> sudo apt install php libapache2-mod-php -y </i>	
+													Using this , the apache server can process php files.
+													</p>
+													
+													<li><b>RPi camera web interface</b></li>
+													<p>The next important step in our application is to stream in the video from the camera onto the system. 
+													For this purpose, For this we downloaded Web based interface for controlling the Raspberry Pi Camera, 
+												    that includes motion detection, time lapse, and image and video recording. 
+													We clone the readily available <i> RPi Cam Web Interface </i> which contains three major files:
+													<ul style="list-style-type:circle;">
+													<li><i>start.sh</i></li>
+													Starts the software. If already running it restarts.													
+													<li><i>RPi_Cam_Web_Interface_Installer.sh</i></li>
+													Main Installation File
+													<li><i>stop.sh</i></li>
+													Stops the software
+													</br>
+													</p>
+													
+												</ul>
+									</p>
+
+									<p>
+												<b>TESTING</b></br>
+												
+												<ul style="list-style-type:square;">
+													<li><b>Installing apache on Raspberry Pi</b></li>
+													<p> 	
+													By default, Apache puts a test HTML file in the web folder. 
+													This default web page is served when you browse to whatever the Pi's IP address is from another computer
+													on the network.After initial installation of apache2, the webpage is loaded as follows:
+													<center>
+														<img src="images/apache-it-works.png" alt="" width="60%" height="60%"/></br>
+													</center>													
+													</p>
+													
+													<li><b>RPi camera web interface</b></li>
+													<p>
+													After installing the php files and RPi camera web interface, the dynamic web page looks like this on our IP address :
+													<center>
+														<img src="images/RpiCamMain1.png" alt="" width="90%" height="150%"/></br>
+													</center>													
+													</p>
+													
+												</ul>												
+									</p>
+									
+									<ul class="feature-icons">									
+										<li class="icon solid fa-compass"><b>WIRLESS INERTIAL MEASUREMENT UNIT APPLICATION</b></li>
+									</ul>
+											<h5>BACKGROUND</h5>	
+											<p> To map the real time response of the users head movement to the video captured by the camera, we make use of the 
+											inertial measurement unit which is in-built in smartphones and VR headsets nowadays. This helps is in avoiding an additional use 
+											of an IC and helps us in the direct transfer of data between the sender and reciever. 
+											Intertial Measurement Unit(IMU) is made of these three sensors:
+											<ul style="list-style-type:circle;">
+											<li><b>Gyroscope</b></li>
+											<p>Gyroscopes, however, measure angular velocity about three axes: pitch (x axis), roll (y axis) and yaw (z axis).
+											When integrated with sensor fusion software, a gyro can be used to determine an object’s orientation within 3D space.</p> 
+											<li><b>Accelerometer</b></li>
+											<p>It measures linear acceleration (change of velocity) across a single axis. Integrating acceleration once reveals an
+											estimate for velocity, and integrating again gives you an estimate for position.</p>
+											<li><b>Magnetometer</b></li>
+											<p>A magnetometer, as the name suggests, measures magnetic fields. It can detect fluctuations in Earth’s magnetic field, 
+											by measuring the air’s magnetic flux density at the sensor’s point in space. </p>
+											The data from these sensors can be used to map the users head position and can be used to send signals to the servo motors 
+											connected to the camera to rotate it. 
+											</p>
+											
+											<h5>DESIGN</h5>	
+											<p> To mirror the rotation of the head of the user wearing the VR-headset, the data from the IMU must be used.
+											    To utilise the readings from this sensor, an android app “Wireless IMU” is used. 
+											    This app sends the sensor readings to the target IP address and port via UDP as Comma Separated Values (CSV).</br>
+												The UDP packet looks like:</br>
+												Timestamp[sec], [Sensor ID(3)], x, y, z,[Sensor ID(4)], x, y, z,[Sensor ID(5)], x, y, z </br>
+												where Sensor ID represents : </br>
+												3: Accelerometer </br>
+												4: Gyroscope </br>
+												5: Magnetometer </br>
+												This application can be run in the background to capture the data while one can watch the live screening. </br>
+												We configured the application on the phone to run in the background connecting to the IP address and specific port. 
+												There was a test run done to capture the data sent by this application by using the <i><b>socket</b></i> function in python. 																								
+											</p>
+
+											<h5>TESTING</h5>	
+											<p> The user interface of the application looks like this:</br> 
+													<center>
+														<img src="images/wimu.png" alt="" width="60%" height="60%"/></br>
+													</center>	
+											To test if we are really recieving data from the application and to understand the data recieved, we made a small python script 
+											to recieve and print the data on the screen which looks as follows:</br> 											
+																								
+											</p>											
+									
+									<ul class="feature-icons">									
+										<li class="icon solid fa-anchor"><b>GIMBAL LOCK FOR CAMERA</b></li>
+									</ul>									        
+											<h5>DESIGN</h5>	
+											<p> We used a camera gimbal which is made up of a slot for the Pi Camera and two servo motors, 
+											one for the movement along X-axis and the other for the 
+											movement along Y-axis. The X-axis movmement maps to the head movement in left-right direction and the Y-axis movement maps 
+											to the head movement in top-down direction. A setup of the camera gimbal is shown below:</br>
+													<center>
+														<img src="images/gimbal.png" alt="" width="80%" height="80%"/></br>
+													</center>
+											To map therotation of the head of the user, the readings from the accelerometer were used.
+											The angular displacement in x and y direction are calculated by the formula given below:</br>
+													<center>
+														<img src="images/formula.png" alt="" width="60%" height="60%"/></br>
+													</center>			
+											Using these angles, the duty cycle of each servo was calculated using [(angle+90)/180 + 2].																										
+											</p>
+											
+											<h5>TESTING</h5>	
+											<p> 
+											The steps we followed during testing are :</br>
+											<ul style="list-style-type:square;">
+											<li> Initial Test: The gimbal lock consists of two servos which are controlled using Pulse Width Modulation using the RPi.
+											     We controlled the servos by passing duty cycle as an input to see how the servos repsond to the duty cycle values passed. 											</li> 			
+										    </li>
+											<li> In the next step, we combined the gimbal control and wirless imu application control. We picked up the data from the 
+											wirless imu application and using the accelerometer data, we calculated the angles. These angles were used to calculate the duty 
+											cycle which was passed to the <i>changeDutyCycle</i> function to change the duty cycle values of the servo motors. The data along 
+											X-axis is used to control the horizontal movement and the data along Y-axis is used to control the vertical movement. For the version 
+											one of the program, we took float values of the accelerometer data and used the GPIO library to control the servos. However, we faced some
+											jittery movement of the gimbal which intrigued us to think deeper.</li>
+											<li>To get rid of the jittery movement, we moved on from software PWM to hardware PWM using the pigpio library. pigpio is a wrapper
+											for the pigpio C library to enable fast	GPIO, PWM, servo control and state change. However, we observed that we got a smoother and more
+											stable movement using the software PWM instead of the hardware PWM. 
+											</li>
+											<li>											
+											At this stage, we moved back to controlling the servos using software PWM. This time, we converted the accelerometer from
+											floating to integer values to stabilize the interger movement and form a more smoother callibration. 
+											The gimbal now captured crisper values and we were able to get rid of the jittery movement. 
+											</li>
+											</ul>
+											</p>	
+
+									<ul class="feature-icons">									
+										<li class="icon solid fa-check-circle"><b>FINAL DESIGN AND INTEGRATION</b></li>
+										<h4>DESIGN</h4>	
+										<h5>HARDWARE</h5>
+										<p> For our final design, we integrated all the components together and used a Google Cardboard VR headset to give a real time
+										experience to the user. Our final prototype looked like this:</br>
+													<center>
+														<img src="images/final_design.jpg" alt="" width="80%" height="80%"/></br>
+										     		</center>
+										</p>
+										<h5>SOFTWARE</h5>											
+										<p> For our final setup, we integrated all the python scripts to be run from a single bash script in the background. This bash 
+										script ensures that all the processes are running concurrently. This helped us combine all the scripts smoothly. </br>
+										In addition to this, we also added a special function to our robot control application where pressing one of the button kills
+										the currently running processes and transfers the control back to the user. 
+										This is written in a bash file where the process ids are listed and used to kill the specific process which in our case can be 
+										found out using the corresponding process name. 									</p>										
+									</p>
+									
+									    <h4>TESTING</h4>
+										<p> We tested the final prototype by powering the RPi with a 5V power bank and powering the servos using a 6V battery pack. 
+										A demo can be seen of the final working prototype:</br>
+										</p>
+									
+									</ul>									        
+											
+										</body>										
+									</div>
+								</div>
+							</section>
+
+						<!-- Four -->
+							<section id="four">
+								<div class="container">
+									<h3>Results</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+							
+							<!-- Five -->
+							<section id="five">
+								<div class="container">
+									<h3>Conclusions</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+							
+							<!-- Six -->
+							<section id="six">
+								<div class="container">
+									<h3>Future Work</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+							
+							<!-- Seven -->
+							<section id="seven">
+								<div class="container">
+									<h3>Budget</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+							
+							<!-- Eight -->
+							<section id="eight">
+								<div class="container">
+									<h3>References</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+							
+							<!-- Nine -->
+							<section id="nine">
+								<div class="container">
+									<h3>Code Appendix</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+							
+						<!-- Five -->
+						<!--
+							<section id="five">
+								<div class="container">
+									<h3>Elements</h3>
+
+									<section>
+										<h4>Text</h4>
+										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+										<hr />
+										<header>
+											<h4>Heading with a Subtitle</h4>
+											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<header>
+											<h5>Heading with a Subtitle</h5>
+											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<hr />
+										<h2>Heading Level 2</h2>
+										<h3>Heading Level 3</h3>
+										<h4>Heading Level 4</h4>
+										<h5>Heading Level 5</h5>
+										<h6>Heading Level 6</h6>
+										<hr />
+										<h5>Blockquote</h5>
+										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+										<h5>Preformatted</h5>
+										<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+									</section>
+
+									<section>
+										<h4>Lists</h4>
+										<div class="row">
+											<div class="col-6 col-12-xsmall">
+												<h5>Unordered</h5>
+												<ul>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+												<h5>Alternate</h5>
+												<ul class="alt">
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<h5>Ordered</h5>
+												<ol>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ol>
+												<h5>Icons</h5>
+												<ul class="icons">
+													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<h5>Actions</h5>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Default</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Default</a></li>
+										</ul>
+										<ul class="actions small">
+											<li><a href="#" class="button primary small">Small</a></li>
+											<li><a href="#" class="button small">Small</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<div class="row">
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+													<li><a href="#" class="button alt">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6 col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+													<li><a href="#" class="button alt small">Small</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary fit">Default</a></li>
+													<li><a href="#" class="button fit">Default</a></li>
+													<li><a href="#" class="button alt fit">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small fit">Small</a></li>
+													<li><a href="#" class="button small fit">Small</a></li>
+													<li><a href="#" class="button alt small fit">Small</a></li>
+												</ul>
+											</div>
+										</div>
+									</section>
+
+									<section>
+										<h4>Table</h4>
+										<h5>Default</h5>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+
+										<h5>Alternate</h5>
+										<div class="table-wrapper">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</section>
+
+									<section>
+										<h4>Buttons</h4>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Primary</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Alternate</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary large">Large</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<ul class="actions fit">
+											<li><a href="#" class="button primary fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+											<li><a href="#" class="button alt fit">Fit</a></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
+										</ul>
+										<ul class="actions">
+											<li><span class="button primary disabled">Primary</span></li>
+											<li><span class="button disabled">Default</span></li>
+											<li><span class="button alt disabled">Alternate</span></li>
+										</ul>
+									</section>
+
+									<section>
+										<h4>Form</h4>
+										<form method="post" action="#">
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<select name="demo-category" id="demo-category">
+														<option value="">- Category -</option>
+														<option value="1">Manufacturing</option>
+														<option value="1">Shipping</option>
+														<option value="1">Administration</option>
+														<option value="1">Human Resources</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+													<label for="demo-priority-low">Low Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-normal" name="demo-priority">
+													<label for="demo-priority-normal">Normal Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-high" name="demo-priority">
+													<label for="demo-priority-high">High Priority</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-copy" name="demo-copy">
+													<label for="demo-copy">Email me a copy of this message</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-human" name="demo-human" checked>
+													<label for="demo-human">I am a human and not a robot</label>
+												</div>
+												<div class="col-12">
+													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Send Message" /></li>
+														<li><input type="reset" value="Reset" class="alt" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+									<section>
+										<h4>Image</h4>
+										<h5>Fit</h5>
+										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
+										<div class="box alt">
+											<div class="row gtr-50 gtr-uniform">
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										<h5>Left &amp; Right</h5>
+										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+									</section>
+
+								</div>
+							</section>
+						-->
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
